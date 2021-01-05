@@ -1,0 +1,139 @@
+how to take advantage of lazy loading
+************* DOCKER ***************
+-t and -i allocate terminal to container
+also execute command in bash
+
+ps: shows running docker containers
+ps -a: shows container with any status
+start: strat using name of id
+stop:
+restart:
+
+docker run: combination of create and start
+	-use -it or container will stop automatically
+
+rm: delete container
+images: displays all images
+rmi: removes docker image
+
+***********AGILE************
+Agile:
+-stories have points
+-stories with points >5 could be subdivided into multiplr stories
+
+Epic:
+-group of stories
+-defines feature
+
+Sprint:
+-time of completion of stories
+- similar to ganttchart?
+
+Velocity:
+- speed of completion of stories
+- either use avg time/sprint or points/sprint to determine velocity of a project
+
+***********GITHUB************
+
+
+**********SOLID*************
+
+Solid is 5 OOP design principles
+
+S - Single-responsiblity Principle
+O - Open-closed Principle
+L - Liskov Substitution Principle
+I - Interface Segregation Principle
+D - Dependency Inversion Principle
+
+Single Repository Principle:
+-A class should have only one job
+
+
+Came across Jira and Kanban while reading about agile, and thought these are some important terms so explored this further.
+link: https://www.guru99.com/jira-tutorial-a-complete-guide-for-beginners.html#:~:text=This%20software%20is%20used%20for,also%20used%20for%20project%20management.
+***********************Jira***************************
+
+JIRA is a tool used for bug tracking, issue tracking, and project management.
+
+JIRA Scheme:
+Inside JIRA scheme, everything can be configured, and it consists of
+Workflows
+Issue Types
+Custom Fields
+Screens
+Field Configuration
+Notification
+Permissions
+
+JIRA Issues:
+basically bugs or problems in a project
+Issue Type displays all types of items that can be created and tracked via JIRA. 
+JIRA Issues are classified under various forms like new feature, sub-task, bug, etc
+
+-Default Issue Type Scheme: In default issue type scheme all newly created issues will be added automatically to this scheme
+-Agile Scrum Issue Type Scheme: Issues and project associated with Agile Scrum will use this scheme
+
+JIRA Components:
+sub-sujescts of a project
+-break up the projects
+-like features, teams, modules, subprojects and more. 
+-we can generate reports, collect statistics, and display it on dashboards and so on.
+
+JIRA Screen:
+-each issue is transitioned under a field called screen
+-Issue Attributes encompasses
++Statuses
++Resolutions
++Priorities
+
+Issue Security Schemes:
+Permission Schemes allow you to create a set of permissions and apply this set of permission to any project.
+
+Subtask:
+-split parent issue to smaller task
+-can create issue under both parent and subtask
+-can't subtask a subtask
+-a parent with subtask can't be converted to subtask
+
+Workflows:
+5 main stages:
+-Open Issue
+-Resolved Issue
+-InProgress Issue
+-ReOpened Issue
+-Close Issue
+
+Plug-ins in JIRA:
+Zendesk, Salesforce, GitHub, Gitbucket
+unlimited private repositories
+
+JIRA Agile:
+-can create issue for agile as scrum or kanban
+-plan mode displays all user stories
+
+Epic:
+-group of stories
+-defines feature
+
+Sprint:
+-time of completion of stories
+- similar to ganttchart?
+
+Velocity:
+- speed of completion of stories
+- either use avg time/sprint or points/sprint to determine velocity of a project
+
+-an issue can be cloned and diff peple can work separately
+-prioritize the issue by putting them in backlog
+
+Jira Reports:
+-alot of reports format like,Sprint Report, Epic Report, Version Report, Velocity Chart, Control Chart, Cumulative flow diagram
+-burndown chart
+-shows actual vs estimated work done
+
+Kanban:
+Kanban board is useful for the team that managing and constraining their work in progress.
+-best for bug fixing and maintenance
+-measure cycle time
+-teams can decide weater to increase or dec issues under s status while agile has boards

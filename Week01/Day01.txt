@@ -1,0 +1,31 @@
+Docker Container:
+-no OS installed 
+-have a virtual copy of the process table, network interface(s), and the file system mount point(s)
+
+Host:
+-shares kernal to all hosts
+-multiple countainers works in isolaton on same host
+-multiple containers with diff app requirements and same OS requirements
+-virtualize the operating system of host rather than hardware components
+
+advantage:
+-Multiple application support with diff requirements
+-Consume less memory
+-Fast bootup time
+-less hardware requirement
+
+disadvantage:
+-Apps with diff OS requirement can't be hosted on same host
+
+Core components:
+Docker Engine:
+- responsible for overall functioning of Docker platform
+- client server based app
+- 3 main components
+	*Server
+	*REST API
+	*Client
+
+
+
+
