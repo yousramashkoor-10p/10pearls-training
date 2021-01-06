@@ -1,0 +1,27 @@
+6th Jan'2020
+Title: The Central Limit Theorem and its Implications
+Link: https://towardsdatascience.com/the-central-limit-theorem-and-its-implications-4a7adac9d6de
+Lately I've been quite stuck with applications of central limit theorem and confidence interval. This article helped me clear out alot of basic concepts.
+
+Why Central Limit theorem?
+CLT is the mother to all Machine Learning researchers and pracritioners. Neural networks, Images, time series etc. We can learn quite a lot, all thanks to this.
+
+What is the central limit theorem?
+"The sampling distribution of the sample means approaches a normal distribution as the sample size gets larger — no matter what the shape of the population distribution"
+or in simple terms;
+"If you sample batches of data from any distribution and take the mean of each batch. Then the distribution of the means is going to resemble a Gaussian distribution. (Same goes for taking the sum)"
+
+So in simple terms when we sample from a distribution of any type, the sample would still be a normal distribution.
+
+Example:
+The gamma distribution looks basically like right skewed graph. so obviously When sampling data from the gamma distribution, the data looks something like right skewd figure (as we discussed before) when we make a histogram plot. Now, if we sample 2000 batches of data from the gamma distribution of size 30 for example, and take their mean to see what happens. Surprisingly we will get a normal distribution. Though with smaller batch sizes while the figure would retain it's original gamma distribution. Hence, the larger the batch sizes, more the distribution follows gaussian.
+
+So how is it usefull?
+Let’s turn to machine learning for a second. The nice thing about the normal distribution is that it has only 2 parameters needed to model it i.e mean and standard deviation. With these, based on the central limit theorem, we can describe arbitrarily complex probability distributions that don’t look anything like the normal distribution
+It also enompases couple of properties that could prove quite useful for us, for eg, Taking the logarithm of the density (otherwise known as the log-likelihood) simplifies many things in machine learning and expands naturally to Mean Squared Error, a loss function that is often used in regression tasks. Also by applying L2 regulization we can show it amounts to Maximum Aposteriori approximation, though both quite trivial.
+Now in Stochastic Gradient Descent we  take a batch sampled from our training set and calculate the mean or sum of the loss over the batches. witch CLT in our hand we can state that if teh batch size are large enough then our loss estimate is going to resemble a Gaussian distribution.
+
+How to construct Confidence Interval?
+Let us imagine that we want to estimate the mean of how much we sleep on average. To do this, we take 200 days and take the mean of sleeping times. This is called a point estimate of the mean. We already know that the distribution is going to resemble a Gaussian because of CLT, though we can als use this to calculate standard deviation also called standard error. based on whic we can smootly state tat when sample size increase the SD would move towards zero.
+so now in order to construct a confidence interval, it always be bound to probability. So, hwen we say that our confidence intervall is 95%, we mean that we are 95% sure our probability is going to land with in our said range. While for the calculation of confidence intervak we use Z-scores. (standardize probability in Z-table)
+so again, now we know if we continue to sample in similar fashion, 95% of the intervals are going to enline with our true mean.
