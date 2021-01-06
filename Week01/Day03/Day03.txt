@@ -1,0 +1,79 @@
+***********10 pearls best practice*******************
+
+*see notes*
+
+SOLID:
+
+first five object-oriented design (OOD) principles
+SOLID stands for:
+
+S - Single-responsiblity Principle
+O - Open-closed Principle
+L - Liskov Substitution Principle
+I - Interface Segregation Principle
+D - Dependency Inversion Principle
+
+Single-responsiblity Principle:
+-A class should only be concerned with only one task
+-example an area calculator sould only calculate area
+-if we need a diff output formats we should define a new class
+
+Open-closed Principle:
+-object shouldbe open for extension but close for modification
+-we can add new function to a class but should'nt modify an existing method's functionality
+
+Liskov Substitution Principle:
+- This means that every subclass or derived class should be substitutable for their base or parent class
+- for example a child class should be able to access all the classes that parent class can
+- so if we use child class inplace of parent, there shouldn't be any such difference
+
+Interface Segregation Principle:
+- A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
+- for example if our class takes object (from classes of any shapes like square, triange etc) but we wan't to restrict that it can't accidently take object of another class type like cat, dog etc
+- we will implement an interface ( tells which functions must be present in class implementing this interface)
+- so all our shape classes will implement this interface
+- but for 3 dimentional shapes, when we will add volume in that interface, the volume is would be useless for 2D shapes. hence we will have to implement a dummy volume method that class will never use
+- we need to avoid this!!
+- Hence as a solution we can implement a 2nd interface with volume. so that 3D shape will have 2 interface implemented
+- https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design#interface-segregation-principle
+
+Dependency Inversion Principle:
+- Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
+- our entities
+
+
+******************* Docker Getting started *********************
+
+********* running a container
+
+1. install docker desktop.
+2. open your cmd and run and create a container at port 80
+	docker run -dp 80:80 docker/getting-started
+3. Now we can see docker/getting started running at "localhost:80"
+
+******** building image of existing project
+
+1. create a dummy project. I'm using this: https://github.com/docker/getting-started/tree/master/app
+2. Create a file name "Dockerfile" where package.json is with following content
+ FROM node:12-alpine
+ WORKDIR /app
+ COPY . .
+ RUN yarn install --production
+ CMD ["node", "src/index.js"]
+3. build image with command "docker build -t yousra-image ."
+4. docker run -dp 3000:3000 yousra-image
+5. open "localhost:3000"
+
+********* updating image
+
+1. make changes to the app.js file
+2. docker build -t yousra-image .
+3. docker ps (copy container ID)
+4. docker stop [container id]
+5. docker rm [container id]
+
+*********pushing an image
+
+1. docker tag yousra-image yousramashkoor/yousra-image
+2. docker push yousramashkoor/yousra-image
+3. now you can clone it to use on your own
