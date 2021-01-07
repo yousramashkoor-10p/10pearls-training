@@ -1,0 +1,63 @@
+Topic: React Class Components VS Hooks
+
+Link: https://dev.to/danielleye/react-class-component-vs-function-component-with-hooks-13dg
+
+In react whenever we want to work with dynamic components (for example a cricket match scores or bravo points of employees) there are two ways to accomplish that,
+
+1- Class component
+2- React Hooks
+
+CLASS COMPONENTS:
+- use life cycle methods to update states
+- there are 3 phases for the life cycle
+	1. Mounting
+	2. Updating 
+	3. Unmounting
+- Mounting is when we put an element inside DOM, similarly unmounting is when we remove it.
+- for mounting we have 4 methods available,
+constructor()
+getDerivedStateFromProps()
+render()
+componentDidMount()
+
+- in class component we define the state as this.state inside constructor, and our JSX markup inside the render method. componentDidMount is where all the magic happens, this is where our method gets called to update state every second.
+- For example, in the example below we are displaying the number of times a user click a button. 
+
+class App extends React.Component {
+	constructor(props){
+		super(props)
+		this.state = {count: 0}
+	}
+	componentDidMount() {
+		document.title = `You clicked ${count} times`;
+  		});
+render(){
+return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => this.setState(prev => ({ count: prev.count + 1 }))> Click </button>
+    </div>
+  )
+}
+}
+
+REACT HOOKS:
+- two most commonly used hooks are useState and useEffect
+- here useEffect() could be considered combination of methods: componentDidMount, componentDidUpdate, and componentWillUnmount
+- for the same example, this is how we will accomplish react hooks
+
+function App() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+     document.title = `You clicked ${count} times`;
+  });
+return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}> Click </button>
+    </div>
+  );
+}
+
+
+Hooks reduces usage of complex class components. While some of this logic could be passed to its child functional component. This functional components will have its functionality attached with it, so would act as reusable small components.

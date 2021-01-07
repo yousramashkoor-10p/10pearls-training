@@ -137,3 +137,26 @@ Kanban board is useful for the team that managing and constraining their work in
 -best for bug fixing and maintenance
 -measure cycle time
 -teams can decide weater to increase or dec issues under s status while agile has boards
+
+
+
+Status Update: 6th Jan
+
+Today:
+-Went through 10 pearls coding pattern and best practices
+-Read about what is agile and how to become an epic story teller
+-git account and installation
+-get github running and set up my first progress resository with @tenperls account there
+https://github.com/yousramashkoor-10p/10pearls-training/tree/master
+- Went through docker handson guide and practice commands with Docker playground
+- Attended session with our social mentor
+- Read new article on JIRA and Kanban
+- Explored git branching and tried creating a dummy branch
+
+Tommorow:
+- Docker Instalation (Will continue working on this)
+- Completing all the said task on time
+
+Blockers:
+- Troubled understanding teminologies and installing of docker which consumed alot of my initial time
+- trouble logging in with @tenpearls account, thankfully sir Waqar helped me with this.

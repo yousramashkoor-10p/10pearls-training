@@ -1,0 +1,33 @@
+**************** GIT CLONE SPECIFIC BRANCH***************
+
+Git is a distributed version control system designed to track changes to a project
+
+GitHub, on the other hand, is a web-based hosting service for version control using Git. It offers all of the distributed version control and source code management functionality of Git as well as adding more features for computer code.
+
+when we clone repository, it clones all the brances with master. hhowever remote HEAD is master
+
+Clone a specific branch:
+	git clone --branch <branchname> <remote-repo-url>
+	OR
+	git clone -b <branchname> <remote-repo-url>
+
+This automatically configures our selected branch as the local branch but still tracks other branches.
+
+Another option to only clone specific branch is:
+	git clone --branch <branchname> --single-branch <remote-repo-url>
+
+This automatically configures OUR SELECTED BRANCH as the local branch and only tracks this branch.
+
+************** STUDY RESOURCES****************
+
+1. best practice complete
+2. git pull specific branch: https://www.freecodecamp.org/news/git-clone-branch-how-to-clone-a-specific-branch/
+3. difference between react component and function
+socket.io
+4. more agile terminologies
+5/6. dockerhub usecases and why it's used:
+https://www.docker.com/use-cases
+https://opensource.com/resources/what-docker#:~:text=Docker%20is%20a%20tool%20designed,deploy%20it%20as%20one%20package.
+https://www.freecodecamp.org/news/docker-simplified-96639a35ff36/
+https://www.zdnet.com/article/what-is-docker-and-why-is-it-so-darn-popular/
+7. https://www.freecodecamp.org/news/five-tips-for-moving-from-coding-tutorials-to-making-progress-as-a-developer/
