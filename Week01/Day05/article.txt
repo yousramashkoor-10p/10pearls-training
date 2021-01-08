@@ -1,0 +1,62 @@
+Title: Getting started with socket.io
+Link: 
+
+Socket.io widely use for for building bi-directinal connael between client and server. This way server will get a message from and will push it to all other connected clients. instead of polling server for changes. Another great advantage of socket is that it's available for both react and python, so it becomes very easy to communicate between your React app to a python client.
+though this specific article is exploring the setup of nodejs chat app using express.
+
+1. CREATING HTTP USING EXPRESS
+2. INTEGRATING SOCKET.IO
+
+Here we need to create two channels with socket
+socket.io (server)
+socket.io-client
+
+Here's a sample server with socket:
+
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
+
+http.listen(3000, () => {
+  console.log('listening on *:3000');
+});
+
+Here we are using socket.on to listen to any incomming sockets.
+
+While for the client integration we simple need to initialize a io endpoint,
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+
+This will simply prompt you with a new connection whenever you open up your app.
+
+3. SENDING MESSAGES
+
+this is accomplished using socket.emmit funtion which takes two argument "event name" and "event message"
+if (input.value) {
+      socket.emit('chat message', input.value);
+      input.value = '';
+    }
+It's as simple as that
+With Socket.IO we can send and receive any events you want, with any data you want.
+
+4. RECIEVEING MESSAGES
+
+If we simplyinsert socket.on with in our server, it will open up a port to listen whenever an event is fired from the client app.
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+  });
+});
+
+With this we have laid down the foindation of our app, from here if we want send out a message from server to all the clients but limit it's targetted client, for tha socket provides us another very useful method called socket.broadcast. Check out the article for more detailed code and explanation.
+

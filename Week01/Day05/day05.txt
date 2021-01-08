@@ -1,0 +1,34 @@
+The URL should only contain resources(nouns) not actions or verbs. The API path/addNewEmployee contains the action addNew along with the resource name Employee.In such a case noun line /companies is a good strategy however in order to tell about the action to the server we need to use HTTP mothds like  (GET, POST, DELETE, PUT), also called as verbs, play the role. 
+Example 
+method GET path /companies should get the list of all companies
+method GET path /companies/34 should get the detail of company 34
+method DELETE path /companies/34 should delete company 34
+
+TAKEAWAY: The paths should contain the plural form of resources and the HTTP method should define the kind of action to be performed on the resource.
+
+HTTP METHODS:
+GET method requests data from the resource
+POST method requests the server to create a resource in the database
+PUT method requests the server to update resource or create the resource, if it doesn’t exist.
+DELETE method requests to remove resource from the database.
+
+HTTP Response status code:
+
+
+**************DOCKER *******************
+
+ADVANTAGE:
+-support multiple application
+-optimized storage
+-robustness
+-reduces costs
+
+DISADVANTAGE:
+-app with diff OS requirement can't be hosted on the same Docker Host
+
+Components:
+-Docker Engine
+- it's a client-server based application
+- The Server runs a daemon known as dockerd (Docker Daemon), which is nothing but a process. It is responsible for creating and managing Docker Images, Containers, Networks and Volumes on the Docker platform.
+- In simple terms, a Docker Image is a template that contains the application, and all the dependencies required to run that application on Docker.
+- On the other hand, as stated earlier, a Docker Container is a logical entity. In more precise terms, it is a running instance of the Docker Image.
