@@ -1,0 +1,68 @@
+
+
+
+Generators:
+"functions that can suspend its execution while maintaining the context."
+in more layman's term, generator is just a function that that can be faused during it's execution and can be resumed again when required.
+
+Syntax:
+
+function* = declaring generator
+yield = 
+Pausing execution
+yeild is only use this inside thegenerator function, if we'll uses this with a callback, generator will through an error.
+yield* = call a generator within another generator
+next = execute next sequence of our generator
+
+function * generatorFunction() { // Line 1
+  yield 1;   // Line 2 
+  yield 2;
+}
+const generatorObject = generatorFunction(); // Line 3
+console.log(generatorObject.next().value); // Line 4
+console.log(generatorObject.next().value); // Line 5
+console.log(generatorObject.next().value); // Line 6
+
+so in the code defined above, the first next would reproduce 1 and the second next would produce 2. While the third next would simply reploduce undefined because a 3rd yeild hasn't been defined for it.
+
+however for a generator, no any yeild would be rechable after a return statement, as return would set the done status of our generator as true
+We can also use throw inside our generator, for which next willpropogate our exception.
+
+enerator as iterator:
+Yeild* synchronously completes the generator function in its expression before moving on to the next line. 
+
+so for example,
+function* g1(){
+yeild 2;
+yeild 3;
+yeild 4;
+}
+
+function* g2(){
+yeild 1;
+yeild* g1();
+yeild 5;
+}
+
+console.log(g2.next()); // value: 1
+console.log(g2.next()); // value: 2
+console.log(g2.next()); // value: 3
+console.log(g2.next()); // value: 4
+console.log(g2.next()); // value: 5
+
+We can use generators to better work with async code, such as promises. This use case it a good introduction to the new async/await on ES8.
+
+function* fetchUsers() {
+  yield fetch('https://jsonplaceholder.typicode.com/users')
+    .then(resp => resp.json())
+    .then(users => {
+      return users;
+    });
+}
+
+const usersIt = fetchUsers();
+usersIt.next().value.then(resp => console.log(resp));
+
+On top of all this, every iterator/generator can be iterated over a for…of loop. Similar to our next() method which is called explicitly, for…of loop internally moves on to the next iteration based on the yield keyword. And it iterates only till the last yield and doesn’t process the return statements like the next() method.
+
+

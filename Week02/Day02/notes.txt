@@ -1,0 +1,11 @@
+Modern full-stack (single page) app has 6 layers,
+
+data access
+backend model
+API server
+API client
+frontend model
+and user interface.
+
+Lose coupling: ttle or no knowledge of the definitions of other separate components. Subareas include the coupling of classes, interfaces, data, and services.
+separation of concerns (SoC): is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program. 
