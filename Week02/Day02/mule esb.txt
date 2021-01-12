@@ -1,0 +1,41 @@
+My take on Mule ESB:
+
+
+
+
+ 
+
+What is ESB?
+
+
+	
+Enterprise service bus
+	An architecture with set of rules to integrate our applications. Establishes a communication bus and replaces our point to point integration
+	establishes communication between bus and application.
+	Reduces time to market.
+
+
+ 
+
+Mule ESB:
+
+ 
+
+
+	
+Scale application up and down based on our need
+	Completely component bases architecture, so we can easily reuse them
+	Introduced mule data source between point to point architecture 
+	loosely coupled and highly scalable
+	Data exchange can be of any format
+
+
+ 
+
+A unique selling point of Mule I believe is that mule is not build on any existing application. It's vendor- neutral so different vendor implementations can be plug into it.
+
+ 
+
+Integrate anything from a "plain old Java object" (POJO) to a component from another framework.
+Messages can be in any format from SOAP to binary image files
+Mule can dramatically decrease time to market and increases productivity
