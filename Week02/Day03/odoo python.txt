@@ -1,0 +1,39 @@
+Title: Benefits and use of Odoo ERP with Python
+Link:
+
+ERP:
+Enterprise resource planning (ERP) refers to a type of software that organizations use to manage day-to-day business activities such as accounting, procurement, project managementetc
+
+Odoo:
+Odoo, an open-source ERP software framework is used by small, medium and large enterprises. 
+Written in python, Odoo can successfully manage critical business operations to increase productivity, enhance sales, and automate processes.
+
+Using Odoo Python, businesses can view the statistics of important data. while heat map could be use to understand statistical information and track the progress of all projects, invoices, and reports.
+Using Odoo python, organizations can built a client base, track leads, monitor performance, and provide long-term customer support. Forr example using Odoo Python, the Human Resource (HR) department can organize employee tasks, handle payroll and manage attendance and paid time off. With Odoo Python, business executives and project managers can easily monitor tasks and projects.
+Python Files:
+
+Python Packages Used in Odoo:
+All python files have a number of imports according to the use. One has to follow an order while using imports.
+
+1. External libraries (one per line sorted and split in python stdlib)
+2. Imports of odoo
+3. Imports from Odoo modules (rarely, and only if necessary)
+
+
+
+Python-psycopg2:
+It is PostgreSQL database adapter for Python, specifically designed for complicated multi-threaded programs that require a large number of concurrent updates and insertions.
+
+Python-dateutil:
+Dateutil provides a powerful extension to the standard date-time module available in python link computing relative delta, internal up-to-date world time zone and generic parsing of date.
+
+Python-jinja2:
+One of its important features includes the addition of sandboxed execution and optional automatic escaping application where security is essential.
+
+Python-simplejson:
+Simplejson is a fast and extensible JSON encoder and decoder for python language.
+
+Python-docutils:
+Docutils is a modular system to process documentation into useful formats like XML, Latex, and HTML.
+
+

@@ -8,4 +8,24 @@ frontend model
 and user interface.
 
 Lose coupling: ttle or no knowledge of the definitions of other separate components. Subareas include the coupling of classes, interfaces, data, and services.
-separation of concerns (SoC): is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program. 
+separation of concerns (SoC): is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program.
+
+
+Data Access
+For a majority of applications, the database can be abstracted using some sort of ORM.
+
+Anyway, if we need such a layer, we can build it later. With cross-layer inheritance, we can add a data access layer on top of the backend model layer with almost no changes to the existing code.
+
+Backend Model
+Typically, a backend model layer handles the following responsibilities:
+
+Shaping the domain model.
+Implementing business logic.
+Handling the authorization mechanisms.
+
+API Layers
+To connect the frontend and the backend, we usually build a web API (REST, GraphQL, etc.), and that complicates everything.
+
+Liaison
+To implement a unified architecture, all we need is cross-layer inheritance, and I started building Liaison to achieve exactly that.
+
