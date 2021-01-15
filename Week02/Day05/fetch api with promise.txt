@@ -1,0 +1,116 @@
+This article has covered how to make a HTTP request using Fetch API and learn the basics of a native JavaScript Promise object.
+
+So what is Fecth API and Promise?
+
+Fetch API?
+interface for fetching resources
+make network request anf handle responses
+better than XMLHttpRequest(XHR)
+fetch takes path of resource and return a promise
+One of the main differences is that Fetch API uses Promises, which provides a way to avoid callbacks hell and boilerplate heavy code that XMLHttpRequest(XHR) provides.
+
+Promise?
+Promises provides us a simpler alternative to executing, composing and managing asynchronous operation compared to the traditional callback-bases approach.
+There are three states, Pending, Fulfilled and Rejected.
+
+Fetch API and Promises:
+Step 01:
+Create a simple index.html file
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Studio Ghibli</title>
+</head>
+<body>
+  <h1>Studio Ghibli Characters</h1>
+  <div id="main"></div>
+  <script src="index.js"></script>
+</body>
+</html>
+
+STEP 02:
+Create a index.js file and let's try to fetch a response;
+const fetchPromise = fetch(“https://ghibliapi.herokuapp.com/people");
+console.log(fetchPromise);
+
+When we log the response, it will show this Promise is in pending state. this means that the response at the time of logging was pending but will eventually be fulfilled.
+
+STEP 03:
+
+We will use the Promise.prototype.then method in order to attach a callback once our Promise has been fulfilled.
+
+onst fetchPromise = fetch("https://ghibliapi.herokuapp.com/people");
+fetchPromise.then(response => {
+  console.log(response);
+});
+
+
+STEP 04:
+
+Now We want to call the json() method on the response in order to get the response body in json format.
+
+const fetchPromise = fetch("https://ghibliapi.herokuapp.com/people");
+fetchPromise.then(response => {
+  return response.json();
+}).then(people => {
+  console.log(people);
+});
+
+STEP 05:
+
+et’s transform this object to only return names. A way to do that is to use the map() function. After we map, we will want to then join together each name with a new line.
+const fetchPromise = fetch("https://ghibliapi.herokuapp.com/people");
+fetchPromise.then(response => {
+  return response.json();
+}).then(people => {
+  const names = people.map(person => person.name).join("\n");
+  console.log(names);
+});
+
+
+STEP 06:
+We are now logging some names but how can we render this list of names in our html instead? o do this we will use a HTML property called innerHTML. This innerHTML Element property allows us to set HTML inside a HTML element which we are going to do to the main element.
+const fetchPromise = fetch("https://ghibliapi.herokuapp.com/people");
+// Target main element
+const main = document.getElementById("main");
+fetchPromise.then(response => {
+  return response.json();
+}).then(people => {
+  const names = people.map(person => person.name).join("\n");
+  // Append names to main element
+  main.innerHTML = names;
+});
+
+STEP 07:
+
+However the code above will only markup the list in a single string, if we want to display eac names in a separated list, we need to put up an extra effort here.
+For that we will create a function called listOfNames that will map each name and will create a list of json and will return this to our main inner html
+
+const fetchPromise = fetch("https://ghibliapi.herokuapp.com/people");
+const main = document.getElementById("main");
+fetchPromise.then(response => {
+  return response.json();
+}).then(people => {
+  main.innerHTML = listOfNames(people);
+});
+function listOfNames(people) {
+  const names = people.map(person => `<li>${person.name}</li>`).join("\n");
+  return `<ul>${names}</ul>`
+}
+
+With this we have complted a basic guide on using FetchAPI with promise to display our required data.
+
+
+
+
+
+
+
+
+
+
+
+
+

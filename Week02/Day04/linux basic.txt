@@ -1,0 +1,44 @@
+Title: Starting of with Linux
+Link:  https://www.guru99.com/must-know-linux-commands.html
+
+Linux is more reliable when compared to Windows. Linux will rock with its top-notch design, built-in security resulting un-parallel up-time.  Developers of Linux distros are much active and release major and minor updates from time to time.  
+Linux allows a user to control every aspect of the operating systems. As Linux is an open-source operating system, it allows a user to modify its source (even source code of applications) itself as per the user requirements.
+
+File Manipulation:
+ls: hows the files /directories in your current directory
+ls -R: shows all the files not only in directories but also subdirectories
+ls-a : view hidden files
+ls-la: shows file details wit permissions
+
+this will basically tell us about permission - size - file owner - owner group - file sixe in bits - data and time - directory of file
+
+creating new file:
+cat is a very strong command that can be used to copy , combine and create text file
+
+Step 01: cat> file1 to create file named file1
+Step 02: Enter file contents
+Step 03: Ctrl+D to exit editing mode
+
+Combining to files to new one:
+>cat file1 file2 > newfile
+Once after this command we won't get any conformation response. This is because Bash Shell (Terminal) is silent type.  Shell Commands will never give you a confirmation message like "OK" or "Command Successfully Executed". It will only show a message when something goes wrong or when an error has occurred.
+
+Deleting a file:
+>rm file1
+Moving files:
+we need sudo command to transfer files
+>sudo mv test /home/yousra/Files
+
+Creatng directoty:
+>mkdir newdir
+OR
+>mkdir /temp/newdir
+
+similarly rmdir directory remove a directory but make sure there's no file inide the directory
+
+Reference book of linux:
+>man ls 
+will give contents of ls command
+>history
+to check history
+
