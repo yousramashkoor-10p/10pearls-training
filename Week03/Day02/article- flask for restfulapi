@@ -1,0 +1,77 @@
+Title: Creating RESTful API using FLask
+Link:
+
+Creating a flask server:
+
+we are creating a flask server with a file named app.py and run it over the localhost:105/hello/
+
+from flask import Flask
+app = Flask(__name__)
+@app.route('/hello/', methods=['GET', 'POST'])
+def welcome():
+    return "Hello World!"
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=105)
+
+app = Flask(__name__) here we are creating and instace of flask class
+route is use to tell Flask what URL should trigger the function
+
+methods specify which HTTP methods are allowed. The default id ['GET']
+now, app.run is to run the flask applicatiton
+
+0.0.0.0 means “all IPv4 addresses on the local machine”. This ensures that the server will be reachable from all addresses
+
+Variable Rule:
+We can can even use a variable section by using <variable_name> as a keyword argument.
+
+from flask import Flask
+app = Flask(__name__)
+@app.route('/<int:number>/')
+def incrementer(number):
+    return "Incremented number is " + str(number+1)
+@app.route('/<string:name>/')
+def hello(name):
+    return "Hello " + name
+app.run()
+
+We can use jsonify to make your output JSON serializable. This function wraps json.dumps() to turn the JSON output into a Response object with application/json mime-type.
+
+from flask import jsonify
+@app.route('/person/')
+def hello():
+    return jsonify({'name':'Jimit',
+                    'address':'India'})
+
+ROUTE REDIRECTING:
+
+You can also use jsonify to automatically serialize lists and tuples to JSON Response
+
+@app.route('/home/')
+def home():
+    return "Home page"
+@app.route('/contact')
+def contact():
+    return "Contact page"
+
+This results in two different behaviours:
+For the home endpoint, if you access the URL without the trailing slash, then Flask redirects you to the URL with the trailing slash.
+For the contact endpoint, if you access the URL with the trailing slash, then it will result in status 404 Not Found.
+
+RETURN STATUS CODE:
+
+We can specify the status code as follows,
+
+@app.route('/teapot/')
+def teapot():
+    return "Would you like some tea?", 418
+
+SOME USEFUL PARAMETERS:
+app.run() runs the application on the server
+threaded → When threaded is set to True , the process will handle each request in a separate thread. Default is False
+use_reloader → When use_reloader is set to True , the server will automatically restart when code changes. Defaults to False
+request.json → Returns parsed JSON data if mimetype is application/json
+request.form → Access the form parameters. Return ImmutableMultiDict
+request.args → Access the parsed URL parameters. Returns ImmutableMultiDict
+
+
+

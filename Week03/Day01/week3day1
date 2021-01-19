@@ -1,0 +1,52 @@
+Title: Deploy ML model on heroku
+Source: 
+
+This tutorial went through detailed step an how to prepare, clean and make a simple mode, convert it to web service and deploy the model on heroku 
+
+MODEL INTO WEBSERVICE:
+
+This step is to package the model into a web service that, when given the data through a POST request, returns (in our case) the MPG (Miles per Gallon) predictions as a response.
+
+Flask gets you started with very little code and you don’t need to worry about the complexity of handling with HTTP requests and responses.
+
+1.Create a new directory for your flask application.
+2.Set up a dedicated environment with dependencies installed using pip.
+3.Install the following packages:
+pandas
+numpy
+sklearn
+flask
+gunicorn
+seaborn
+
+4.activate this environment and start developing a simple endpoint to test the application:
+
+app = Flask('app')
+@app.route('/test', methods=['GET'])
+def test():
+    return 'Pinging Model Application!!'
+
+if __name__ == ‘__main__’:
+    app.run(debug=True, host=’0.0.0.0', port=9696)
+
+
+DEPLOYING TO HEROKU:
+
+1.Create Procfile in main dir
+2.Add followin content
+>web: gunicorn wsgi:app
+3.Now, create a wsgi.py file and add:
+##importing the app from main file
+from main import app
+
+if __name__ == “__main__”: 
+    app.run()
+
+4. delete run code from main.py and create requrements.txt
+5. Now initialize your git repository and commit your code
+6. login to heroku cli
+>heroku login
+>heroku create <name of your app>
+>git push heroku master
+
+And you're Done!
